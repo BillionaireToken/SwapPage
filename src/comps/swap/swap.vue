@@ -474,7 +474,7 @@ export default class Swap extends Vue {
     }]
 
     SwapContrak_ADDR = '0x9Bff6E926A6EEe7E35EeFf25568D449e8d40D419'
-    XBL_Token_ADDR = '0x82D01395cD1Ac118207c3963cF07d5c106C96773'
+    XBL_Token_ADDR = '0x49AeC0752E68D0282Db544C677f6BA407BA17ED7'
 
     recipient_adress = ''
     amount = ''
@@ -519,7 +519,7 @@ export default class Swap extends Vue {
 
     onAmountUpdate()
     {
-        if (this.amount > 5000)
+        if (this.amount >= 5000)
         {
             this.received_xbl = parseInt(this.amount) + ((5 / 100) * parseInt(this.amount));
         }
