@@ -10,10 +10,10 @@ en:
     register: "Register Swap"
     remaining: "Remaining Balance {balance}"
     rules:
-        r1: "Make sure you are using Google Chrome or The Brave Browser and have the Metamask browser plug-in installed and unlocked."
-        r2: "Make sure your Billionaire Tokens (XBL) are in your Metamask account. Make sure you double-check your EOS Main net account name."
-        r3: "Enter the amount of XBL you wish to swap to the EOS Main net and click Approve! Then wait for the transaction to be mined."
-        r4: "Enter your EOS Main Net account name, double-checking it, and click Register Swap! Make sure the account name is correct, we can not help you if it is not."
+        r1: "Make sure you are using <b>Google Chrome</b> or <b>The Brave Browser</b> and have the <b>Metamask</b> browser plug-in installed and unlocked."
+        r2: "Make sure your Billionaire Tokens (XBL) are in your Metamask account. Make sure you <b>double-check</b> your EOS Main net account name."
+        r3: "Enter the amount of XBL you wish to swap to the EOS Main net and <b>click Approve</b>! Then wait for the transaction to be mined."
+        r4: "Enter your EOS Main Net account name, double-checking it, and <b>click Register Swap</b>! Make sure the account name is correct, we can not help you if it is not."
 </i18n>
 
 <template lang="pug">
@@ -24,8 +24,8 @@ en:
             .container
                 .guidelines
                     .rule(v-for="r in 4" :key="r")
-                        span {{r}}&nbsp| 
-                        p(v-t="'rules.r'+r")
+                        span {{r}}| 
+                        p(v-html="$t('rules.r'+r)")
                 .sep
                 .swapping
                     .eos
@@ -656,7 +656,7 @@ export default class Swap extends Vue {
             .then(txHash =>
             {
                 console.log('Transaction sent...')
-                alert('The Register transaction has been sent! Please wait for a notification to see the success state after it has been mined.')
+                alert('The Register transaction has been sent! You will receive another notification after it has been mined.')
                 console.dir("TX ID: "+txHash)
                 this.waitForTxToBeMined(txHash, "register")
             })
